@@ -1,0 +1,49 @@
+server:
+    port: 9292
+
+
+spring:
+#  docker:
+#    compose:
+#      enabled=false:
+  application:
+    name:  userservice
+  datasource:
+    url: jdbc:mysql://localhost:3306/jobapplication
+    username: root
+    password: myadmin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+
+
+
+management:
+               endpoints:
+                      web:
+                          exposure:
+                                  include:  "*"
+               endpoint:
+                      health:
+                         show-details: always
+                      shutdown:
+                        enabled: true
+                      server:
+                        shutdown: graceful
+
+               info:
+                 env:
+                     enabled:  true
+
+
+
+
+info:
+    app:
+         name:  JobApplication
+         description:  job app created by robert
+         version: 1.0.1
+
